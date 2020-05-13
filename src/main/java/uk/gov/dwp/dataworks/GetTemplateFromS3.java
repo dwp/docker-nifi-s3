@@ -1,7 +1,7 @@
 package uk.gov.dwp.dataworks;
 
 import com.amazonaws.SdkClientException;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -19,12 +19,12 @@ public class GetTemplateFromS3 {
 
     public static void main(final String[] args) throws IOException {
         try {
-            final String clientRegion = args[1];
-            final String bucketName = args[2];
-            final String sourceKey = args[3];
+            final String clientRegion = System.getenv("AWS_REGION");
+            final String bucketName = System.getenv("S3_BUCKET");
+            final String sourceKey = System.getenv("S3_KEY");
 
             final AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                    .withCredentials(new ProfileCredentialsProvider())
+                    .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
                     .withRegion(Regions.valueOf(clientRegion))
                     .build();
 

@@ -6,10 +6,16 @@ plugins {
 mainClassName = "uk.gov.dwp.dataworks.GetTemplateFromS3"
 
 jar {
+    zip64=true
     manifest {
         attributes(
                 'Main-Class': mainClassName
+
         )
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 

@@ -3,9 +3,17 @@ plugins {
     id 'application'
 }
 
+mainClassName = "uk.gov.dwp.dataworks.GetTemplateFromS3"
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': mainClassName
+        )
+    }
+}
+
 group = 'uk.gov.dwp.dataworks'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -20,10 +28,8 @@ tasks.withType(JavaExec) {
 }
 
 dependencies {
-    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.701'
-    compile group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.701'
-    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.701'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.780'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.780'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.780'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 }
-
-mainClassName = "uk.gov.dwp.dataworks.GetTemplateFromS3"

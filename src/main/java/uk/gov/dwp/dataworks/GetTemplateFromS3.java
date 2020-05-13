@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class GetTemplateFromS3 {
 
-    private static final String DESTINATION = "/conf/flow.xml.gz";
+    private static final String DESTINATION = "/opt/nifi/nifi-current/conf/flow.xml.gz";
 
     public static void main(final String[] args) throws IOException {
         try {

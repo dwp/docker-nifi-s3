@@ -20,8 +20,6 @@ public class GetTemplateFromS3 {
 
     public static void main(final String[] args) throws IOException {
         try {
-
-            // these will be
             final String clientRegion = args[1];
             final String bucketName = args[2];
             final String sourceKey = args[3];
@@ -36,8 +34,6 @@ public class GetTemplateFromS3 {
 
             final S3ObjectInputStream inputStream = s3Object.getObjectContent();
             FileUtils.copyInputStreamToFile(inputStream, new File(DESTINATION));
-        } catch (final AmazonServiceException e) {
-            e.printStackTrace();
         } catch (final SdkClientException e) {
             e.printStackTrace();
         }

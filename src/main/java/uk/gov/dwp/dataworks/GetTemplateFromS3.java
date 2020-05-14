@@ -34,7 +34,8 @@ public class GetTemplateFromS3 {
             final S3ObjectInputStream inputStream = s3Object.getObjectContent();
             FileUtils.copyInputStreamToFile(inputStream, new File(DESTINATION));
         } catch (final SdkClientException e) {
-            e.printStackTrace();
+            System.out.println("FATAL: Failed to fetch flow file from S3");
+            throw e;
         }
     }
 }

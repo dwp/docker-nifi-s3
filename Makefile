@@ -1,5 +1,7 @@
 SHELL:=bash
 
+APP_NAME=nifi-s3
+
 default: help
 
 .PHONY: help
@@ -22,3 +24,17 @@ git-hooks: ## Set up hooks in .git/hooks
 			ln -s -f ../../.githooks/$${hook} $${HOOK_DIR}/$${hook}; \
 		done \
 	}
+
+.PHONY: build-nifi-image
+build-nifi-image: ## Build the container
+	gradle build
+	docker build -t $(APP_NAME) .
+
+.PHONY: run-nifi-container
+run-nifi-container:
+	docker run -e AWS_REGION=$(AWS_REGION) -e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) -e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -p 8080:8080 -p 7070:7070 nifi-test
+
+.PHONY: build-and-run
+build-and-run:
+	make build-nifi-image
+	make run-nifi-container

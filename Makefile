@@ -32,7 +32,7 @@ build-nifi-image: ## Build the container
 
 .PHONY: run-nifi-container
 run-nifi-container:
-	docker run -e AWS_REGION=$(AWS_REGION) -e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) -e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -p 8080:8080 -p 7070:7070 nifi-test
+	docker run -e AWS_REGION=$(AWS_REGION) -e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) -e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -p 8080:8080 -p 7070:7070 nifi-s3
 
 .PHONY: build-and-run
 build-and-run:

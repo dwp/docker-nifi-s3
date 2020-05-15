@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flowController encoding-version="1.3">
+  <maxTimerDrivenThreadCount>10</maxTimerDrivenThreadCount>
+  <maxEventDrivenThreadCount>5</maxEventDrivenThreadCount>
+  <registries/>
+  <rootGroup>
+    <id>17b8c4c6-0172-1000-5bd1-ae25abaefa8b</id>
+    <name>NiFi Flow</name>
+    <position x="0.0" y="0.0"/>
+    <comment/>
+    <processor>
+      <id>7c2e7754-1a75-3a2a-c132-e10aa0bbd799</id>
+      <name>ListenHTTP</name>
+      <position x="108.0" y="515.0"/>
+      <styles/>
+      <comment/>
+      <class>org.apache.nifi.processors.standard.ListenHTTP</class>
+      <bundle>
+        <group>org.apache.nifi</group>
+        <artifact>nifi-standard-nar</artifact>
+        <version>1.9.0</version>
+      </bundle>
+      <maxConcurrentTasks>1</maxConcurrentTasks>
+      <schedulingPeriod>0 sec</schedulingPeriod>
+      <penalizationPeriod>30 sec</penalizationPeriod>
+      <yieldPeriod>1 sec</yieldPeriod>
+      <bulletinLevel>WARN</bulletinLevel>
+      <lossTolerant>false</lossTolerant>
+      <scheduledState>RUNNING</scheduledState>
+      <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+      <executionNode>ALL</executionNode>
+      <runDurationNanos>0</runDurationNanos>
+      <property>
+        <name>Base Path</name>
+        <value>uploadCollection</value>
+      </property>
+      <property>
+        <name>Listening Port</name>
+        <value>7070</value>
+      </property>
+      <property>
+        <name>Max Data to Receive per Second</name>
+      </property>
+      <property>
+        <name>SSL Context Service</name>
+      </property>
+      <property>
+        <name>Authorized DN Pattern</name>
+        <value>.*</value>
+      </property>
+      <property>
+        <name>Max Unconfirmed Flowfile Time</name>
+        <value>60 secs</value>
+      </property>
+      <property>
+        <name>HTTP Headers to receive as Attributes (Regex)</name>
+      </property>
+      <property>
+        <name>Return Code</name>
+        <value>200</value>
+      </property>
+      <property>
+        <name>multipart-request-max-size</name>
+        <value>1024 MB</value>
+      </property>
+      <property>
+        <name>multipart-read-buffer-size</name>
+        <value>512 KB</value>
+      </property>
+    </processor>
+    <processor>
+      <id>797552b7-37ac-3844-d710-d8083d9ccf77</id>
+      <name>PutS3Object</name>
+      <position x="763.0" y="504.0"/>
+      <styles/>
+      <comment/>
+      <class>org.apache.nifi.processors.aws.s3.PutS3Object</class>
+      <bundle>
+        <group>org.apache.nifi</group>
+        <artifact>nifi-aws-nar</artifact>
+        <version>1.9.0</version>
+      </bundle>
+      <maxConcurrentTasks>1</maxConcurrentTasks>
+      <schedulingPeriod>0 sec</schedulingPeriod>
+      <penalizationPeriod>30 sec</penalizationPeriod>
+      <yieldPeriod>1 sec</yieldPeriod>
+      <bulletinLevel>WARN</bulletinLevel>
+      <lossTolerant>false</lossTolerant>
+      <scheduledState>RUNNING</scheduledState>
+      <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+      <executionNode>ALL</executionNode>
+      <runDurationNanos>0</runDurationNanos>
+      <property>
+        <name>Object Key</name>
+        <value>${filename}</value>
+      </property>
+      <property>
+        <name>Bucket</name>
+        <value>dataworks-nifi-output</value>
+      </property>
+      <property>
+        <name>Content Type</name>
+      </property>
+      <property>
+        <name>Access Key</name>
+      </property>
+      <property>
+        <name>Secret Key</name>
+      </property>
+      <property>
+        <name>Credentials File</name>
+      </property>
+      <property>
+        <name>AWS Credentials Provider service</name>
+      </property>
+      <property>
+        <name>s3-object-tags-prefix</name>
+      </property>
+      <property>
+        <name>s3-object-remove-tags-prefix</name>
+        <value>false</value>
+      </property>
+      <property>
+        <name>Storage Class</name>
+        <value>Standard</value>
+      </property>
+      <property>
+        <name>Region</name>
+        <value>eu-west-2</value>
+      </property>
+      <property>
+        <name>Communications Timeout</name>
+        <value>30 secs</value>
+      </property>
+      <property>
+        <name>Expiration Time Rule</name>
+      </property>
+      <property>
+        <name>FullControl User List</name>
+        <value>${s3.permissions.full.users}</value>
+      </property>
+      <property>
+        <name>Read Permission User List</name>
+        <value>${s3.permissions.read.users}</value>
+      </property>
+      <property>
+        <name>Write Permission User List</name>
+        <value>${s3.permissions.write.users}</value>
+      </property>
+      <property>
+        <name>Read ACL User List</name>
+        <value>${s3.permissions.readacl.users}</value>
+      </property>
+      <property>
+        <name>Write ACL User List</name>
+        <value>${s3.permissions.writeacl.users}</value>
+      </property>
+      <property>
+        <name>Owner</name>
+        <value>${s3.owner}</value>
+      </property>
+      <property>
+        <name>canned-acl</name>
+        <value>${s3.permissions.cannedacl}</value>
+      </property>
+      <property>
+        <name>SSL Context Service</name>
+      </property>
+      <property>
+        <name>Endpoint Override URL</name>
+      </property>
+      <property>
+        <name>Signer Override</name>
+        <value>Default Signature</value>
+      </property>
+      <property>
+        <name>Multipart Threshold</name>
+        <value>5 GB</value>
+      </property>
+      <property>
+        <name>Multipart Part Size</name>
+        <value>5 GB</value>
+      </property>
+      <property>
+        <name>Multipart Upload AgeOff Interval</name>
+        <value>60 min</value>
+      </property>
+      <property>
+        <name>Multipart Upload Max Age Threshold</name>
+        <value>7 days</value>
+      </property>
+      <property>
+        <name>server-side-encryption</name>
+        <value>None</value>
+      </property>
+      <property>
+        <name>proxy-configuration-service</name>
+      </property>
+      <property>
+        <name>Proxy Host</name>
+      </property>
+      <property>
+        <name>Proxy Host Port</name>
+      </property>
+      <property>
+        <name>proxy-user-name</name>
+      </property>
+      <property>
+        <name>proxy-user-password</name>
+      </property>
+      <autoTerminatedRelationship>success</autoTerminatedRelationship>
+      <autoTerminatedRelationship>failure</autoTerminatedRelationship>
+    </processor>
+    <connection>
+      <id>d94c155e-dde3-3c89-fd8d-00f1a75f9a20</id>
+      <name/>
+      <bendPoints/>
+      <labelIndex>1</labelIndex>
+      <zIndex>0</zIndex>
+      <sourceId>7c2e7754-1a75-3a2a-c132-e10aa0bbd799</sourceId>
+      <sourceGroupId>17b8c4c6-0172-1000-5bd1-ae25abaefa8b</sourceGroupId>
+      <sourceType>PROCESSOR</sourceType>
+      <destinationId>797552b7-37ac-3844-d710-d8083d9ccf77</destinationId>
+      <destinationGroupId>17b8c4c6-0172-1000-5bd1-ae25abaefa8b</destinationGroupId>
+      <destinationType>PROCESSOR</destinationType>
+      <relationship>success</relationship>
+      <maxWorkQueueSize>10000</maxWorkQueueSize>
+      <maxWorkQueueDataSize>1 GB</maxWorkQueueDataSize>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+      <partitioningAttribute/>
+      <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+    </connection>
+  </rootGroup>
+  <controllerServices/>
+  <reportingTasks/>
+</flowController>

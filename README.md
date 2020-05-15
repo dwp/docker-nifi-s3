@@ -13,9 +13,10 @@ make build-nifi-image
 
 ## To Run
 Set the following environment variables for the AWS Account you want to use:
-- AWS_REGION - All caps (e.g. EU_WEST_2)
+- AWS_REGION - All lower case (e.g. eu-west-2)
+- AWS_REGION_JAVA - All caps (e.g. EU_WEST_2)
 - S3_BUCKET - Source flow file Bucket name
-- S3_KEY - File path of the flow file
+- S3_KEY - File path of the flow file without leading `/` (e.g. my/path/flow.xml.gz)
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
 

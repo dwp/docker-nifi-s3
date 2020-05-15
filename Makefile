@@ -1,5 +1,6 @@
 SHELL:=bash
 
+ORG_NAME=dwpdigital
 APP_NAME=nifi-s3
 
 default: help
@@ -28,14 +29,14 @@ git-hooks: ## Set up hooks in .git/hooks
 .PHONY: build
 build: ## Build the container
 	gradle build
-	docker build -t $(APP_NAME) .
+	docker build -t $(ORG_NAME)/$(APP_NAME) .
 
 .PHONY: run
 run: ## Run docker container detached
 	@{ \
-		echo "INFO: remove nifi-s3 container if exists"; \
-		docker rm nifi-s3; \
-		docker run --name nifi-s3 -d -e AWS_REGION=$(AWS_REGION) -e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) -e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -p 8080:8080 -p 7070:7070 nifi-s3; \
+		echo "INFO: remove $(APP_NAME) container if exists"; \
+		docker rm $(APP_NAME); \
+		docker run --name $(APP_NAME) -e AWS_REGION=$(AWS_REGION) -e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) -e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -p 8080:8080 -p 7070:7070 $(ORG_NAME)/$(APP_NAME); \
 	}
 
 .PHONY: build-and-run

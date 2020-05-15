@@ -47,6 +47,10 @@ s3-config: ## Generate flow file and place in S3
 		rm flow.xml.gz; \
 	}
 
+.PHONY: stop
+stop: ## Stop the container
+	docker stop $(APP_NAME)
+
 .PHONY: build-and-run
 build-and-run:
 	make s3-config

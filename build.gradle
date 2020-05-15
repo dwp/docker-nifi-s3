@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = "uk.gov.dwp.dataworks.GetTemplateFromS3"
+
+jar {
+    zip64=true
+    manifest {
+        attributes(
+                'Main-Class': mainClassName
+
+        )
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+group = 'uk.gov.dwp.dataworks'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url = "https://jitpack.io"
+    }
+}
+
+tasks.withType(JavaExec) {
+    systemProperties System.properties
+}
+
+dependencies {
+    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.780'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.780'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.780'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+}

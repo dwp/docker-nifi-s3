@@ -6,9 +6,14 @@ Docker container for Apache NiFi that retrieves config from S3 location on launc
 - Gradle
 - AWSCLI
 
+## To Generate Flow File and Store in S3
+```bash
+make s3-config
+```
+
 ## To Build
 ```bash
-make build-nifi-image
+make build
 ```
 
 ## To Run
@@ -21,7 +26,7 @@ Set the following environment variables for the AWS Account you want to use:
 - AWS_SECRET_ACCESS_KEY
 
 ```bash
-make run-nifi-container
+make run
 ```
 
 or to build and run in one commands
@@ -40,3 +45,5 @@ Use the following command:
 ```bash
 curl --data-binary @README.md http://localhost:7070/uploadCollection 
 ```
+
+Check the Nifi UI above, in addition, check the S3 bucket `dataworks-nifi-output` for your file to verify.

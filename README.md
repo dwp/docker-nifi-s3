@@ -1,6 +1,12 @@
  # docker-nifi-s3
 Docker container for Apache NiFi that retrieves config from S3 location on launch. Container images published to https://hub.docker.com/r/dwpdigital/nifi-s3.
 
+## Build Requirements
+- Java 8
+- Gradle
+
+Note: if you only want to run, you don't need the above if you have a built version of the project available.
+
 ## To Build
 ```bash
 make build-nifi-image

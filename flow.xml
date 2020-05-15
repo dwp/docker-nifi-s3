@@ -112,6 +112,7 @@
       </property>
       <property>
         <name>AWS Credentials Provider service</name>
+        <value>17f137e2-0172-1000-09c2-d2eadc88eba3</value>
       </property>
       <property>
         <name>s3-object-tags-prefix</name>
@@ -231,6 +232,57 @@
       <partitioningAttribute/>
       <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
     </connection>
+    <controllerService>
+      <id>17f137e2-0172-1000-09c2-d2eadc88eba3</id>
+      <name>AWSCredentialsProviderControllerService</name>
+      <comment/>
+      <class>org.apache.nifi.processors.aws.credentials.provider.service.AWSCredentialsProviderControllerService</class>
+      <bundle>
+        <group>org.apache.nifi</group>
+        <artifact>nifi-aws-nar</artifact>
+        <version>1.9.0</version>
+      </bundle>
+      <enabled>true</enabled>
+      <property>
+        <name>default-credentials</name>
+        <value>false</value>
+      </property>
+      <property>
+        <name>Access Key</name>
+      </property>
+      <property>
+        <name>Secret Key</name>
+      </property>
+      <property>
+        <name>Credentials File</name>
+      </property>
+      <property>
+        <name>profile-name</name>
+      </property>
+      <property>
+        <name>anonymous-credentials</name>
+        <value>false</value>
+      </property>
+      <property>
+        <name>Assume Role ARN</name>
+      </property>
+      <property>
+        <name>Assume Role Session Name</name>
+      </property>
+      <property>
+        <name>Session Time</name>
+        <value>3600</value>
+      </property>
+      <property>
+        <name>assume-role-external-id</name>
+      </property>
+      <property>
+        <name>assume-role-proxy-host</name>
+      </property>
+      <property>
+        <name>assume-role-proxy-port</name>
+      </property>
+    </controllerService>
   </rootGroup>
   <controllerServices/>
   <reportingTasks/>

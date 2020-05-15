@@ -4,8 +4,7 @@ Docker container for Apache NiFi that retrieves config from S3 location on launc
 ## Build Requirements
 - Java 8
 - Gradle
-
-Note: if you only want to run, you don't need the above if you have a built version of the project available.
+- AWSCLI
 
 ## To Build
 ```bash

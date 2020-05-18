@@ -16,7 +16,7 @@ jobs:
       - name: Upload s3-copy jar
         uses: actions/upload-artifact@v1
         with:
-          name: build/libs
+          name: gradle-build
           path: docker-nifi-s3.jar
 
   build-and-scan:
@@ -27,10 +27,13 @@ jobs:
       - name: Download s3-copy
         uses: actions/download-artifact@v1
         with:
-          name: build/libs
+          name: gradle-build
       - shell: bash
         run: |
-          ls -la build/libs/
+          ls -la gradle-build
+          mkdir build
+          mkdir build/libs
+          cp gradle-build/docker-nifi-s3.jar build/libs/docker-nifi-s3.jar
       - name: Build Docker image
         run: docker build -t ${{ env.IMAGE_NAME }}:latest .
       - name: Run Snyk to check image for high vulnerabilities

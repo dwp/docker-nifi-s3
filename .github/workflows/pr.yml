@@ -17,7 +17,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: gradle-build
-          path: docker-nifi-s3.jar
+          path: build/libs/docker-nifi-s3.jar
 
   build-and-scan:
     runs-on: ubuntu-latest

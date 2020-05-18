@@ -3,7 +3,7 @@ name: High vulns Snyk PR scan
 on: pull_request
 
 env:
-  IMAGE_NAME: dwpdigital/docker-nifi-s3
+  IMAGE_NAME: dwpdigital/nifi-s3
 
 jobs:
   gradle-build:

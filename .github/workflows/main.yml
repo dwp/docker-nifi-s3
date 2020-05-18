@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  IMAGE_NAME: dwpdigital/docker-nifi-s3
+  IMAGE_NAME: dwpdigital/nifi-s3
 
 jobs:
   gradle-build:

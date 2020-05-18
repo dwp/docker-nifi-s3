@@ -19,7 +19,7 @@ jobs:
           name: gradle-build
           path: build/libs/docker-nifi-s3.jar
 
-  build-and-scan:
+  docker-build-and-scan:
     runs-on: ubuntu-latest
     needs: gradle-build
     steps:
@@ -30,9 +30,7 @@ jobs:
           name: gradle-build
       - shell: bash
         run: |
-          ls -la gradle-build
-          mkdir build
-          mkdir build/libs
+          mkdir -p build/libs
           cp gradle-build/docker-nifi-s3.jar build/libs/docker-nifi-s3.jar
       - name: Build Docker image
         run: docker build -t ${{ env.IMAGE_NAME }}:latest .

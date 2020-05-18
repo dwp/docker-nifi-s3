@@ -12,13 +12,9 @@ jobs:
   gradle-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 8
-      - uses: eskatos/gradle-command-action@v1
-        with:
-          arguments: build
+      - uses: actions/checkout@v2
+      - name: Gradle Build Jar
+        run: gradle build
 
   get-publish-version:
     runs-on: ubuntu-latest
@@ -35,7 +31,7 @@ jobs:
 
   publish-github-release:
     runs-on: ubuntu-latest
-    needs: get-publish-version
+    needs: [get-publish-version, publish-docker]
     steps:
       - name: Checkout code
         uses: actions/checkout@master
@@ -52,7 +48,7 @@ jobs:
 
   publish-docker:
     runs-on: ubuntu-latest
-    needs: get-publish-version
+    needs: [get-publish-version, gradle-build]
     steps:
       - uses: actions/checkout@master
       - name: Get release version

@@ -1,0 +1,121 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-DEBIAN9-BZIP2-450801:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-CURL-466505:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-CURL-336351:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-EXPAT-450910:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIB20-348009:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIBC-356851:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIBC-356602:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIBC-356596:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIBC-356506:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIBC-356470:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-GLIBC-338164:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-LIBIDN-310978:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-LIBJPEGTURBO-571503:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-LIBPNG16-452465:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-LIBSNDFILE-316519:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-LIBSSH2-340758:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-LIBXSLT-343263:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-PCRE3-572364:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-PERL-570799:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-PERL-570794:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-PERL-570790:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-SHADOW-306269:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-SQLITE3-571630:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-SQLITE3-570722:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-SQLITE3-348055:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-SYSTEMD-305096:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-UTILLINUX-285822:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-WGET-342192:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+  SNYK-DEBIAN9-WGET-342192:
+    - '*':
+        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
+        expires: 2020-09-29T00:00:00.000Z
+patch: {}

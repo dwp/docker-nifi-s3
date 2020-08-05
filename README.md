@@ -49,3 +49,11 @@ curl --data-binary @README.md http://localhost:7070/uploadCollection
 ```
 
 Check the Nifi UI above, in addition, check the S3 bucket `dataworks-nifi-output` for your file to verify.
+
+### Retrieve flow file from container
+NiFi UI automatically saves changes to a flow file. When running on a container locally, you can get the flow file off the container using the following command, ensuring you have first set the environment variable `CONTAINER_ID` to the locally running docker container for NiFi:
+```bash
+make get-flow-file-locally-and-upload-to-s3
+```
+
+This will copy the flow file locally, and upload it to S3 in the location of `S3_BUCKET` and `S3_KEY` environment variables.

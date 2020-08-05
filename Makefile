@@ -36,13 +36,24 @@ run: ## Run docker container detached
 	@{ \
 		echo "INFO: remove $(APP_NAME) container if exists"; \
 		docker rm $(APP_NAME); \
-		docker run --name $(APP_NAME) -d -e AWS_REGION=$(AWS_REGION_JAVA) -e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) -e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -p 8080:8080 -p 7070:7070 $(ORG_NAME)/$(APP_NAME); \
+		docker run --name $(APP_NAME) -d -e AWS_REGION=$(AWS_REGION_JAVA) \
+		-e S3_BUCKET=$(S3_BUCKET) -e S3_KEY=$(S3_KEY) -e AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID) \
+		-e AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY) -e AWS_PROFILE=$(AWS_PROFILE) \
+		-p 8080:8080 -p 7070:7070 $(ORG_NAME)/$(APP_NAME); \
 	}
 
 .PHONY: s3-config
 s3-config: ## Generate flow file and place in S3
 	@{ \
 		gzip -k flow.xml; \
+		aws --region $(AWS_REGION) s3 cp flow.xml.gz s3://$(S3_BUCKET)/$(S3_KEY); \
+		rm flow.xml.gz; \
+	}
+
+.PHONY: get-flow-file-locally-and-upload-to-s3
+get-flow-file-locally-and-upload-to-s3: ## Get flow file from local container and upload to S3
+	@{ \
+	    docker cp ${CONTAINER_ID}:/opt/nifi/nifi-current/conf/flow.xml.gz flow.xml.gz; \
 		aws --region $(AWS_REGION) s3 cp flow.xml.gz s3://$(S3_BUCKET)/$(S3_KEY); \
 		rm flow.xml.gz; \
 	}

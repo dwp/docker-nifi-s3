@@ -67,7 +67,7 @@ jobs:
           cp gradle-build/docker-nifi-s3.jar build/libs/docker-nifi-s3.jar
       - name: Get release version
         id: get_version
-        run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
+        run: echo RELEASE_VERSION=$(echo ${GITHUB_REF:10}) >> $GITHUB_ENV
       - name: Publish to DockerHub
         uses: elgohr/Publish-Docker-Github-Action@master
         with:

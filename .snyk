@@ -114,8 +114,4 @@ ignore:
     - '*':
         reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
         expires: 2020-09-29T00:00:00.000Z
-  SNYK-DEBIAN9-WGET-342192:
-    - '*':
-        reason: Requires an upgrade to the docker base image not managed by Apache to resolve the vulnerability.
-        expires: 2020-09-29T00:00:00.000Z
 patch: {}

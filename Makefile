@@ -28,7 +28,7 @@ git-hooks: ## Set up hooks in .git/hooks
 
 .PHONY: build
 build: ## Build the container
-	gradle build
+	./gradlew build
 	docker build -t $(ORG_NAME)/$(APP_NAME) .
 
 .PHONY: run

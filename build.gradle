@@ -34,7 +34,7 @@ tasks.withType(JavaExec) {
 }
 
 dependencies {
-    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.X')
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.1016')
     implementation 'com.amazonaws:aws-java-sdk'
     implementation 'com.amazonaws:aws-java-sdk-core'
     implementation 'com.amazonaws:aws-java-sdk-s3'

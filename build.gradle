@@ -22,8 +22,9 @@ jar {
 group = 'uk.gov.dwp.dataworks'
 
 repositories {
-    mavenCentral()
-    mavenLocal()
+    maven {
+        url = "http://maven.icm.edu.pl/artifactory/repo"
+    }
     maven {
         url = "https://jitpack.io"
     }
@@ -34,7 +35,7 @@ tasks.withType(JavaExec) {
 }
 
 dependencies {
-    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.228')
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.373')
     implementation 'com.amazonaws:aws-java-sdk-s3'
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
 }

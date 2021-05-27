@@ -1,6 +1,5 @@
 package uk.gov.dwp.dataworks;
 
-import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
@@ -33,7 +32,7 @@ public class GetTemplateFromS3 {
 
             final S3ObjectInputStream inputStream = s3Object.getObjectContent();
             FileUtils.copyInputStreamToFile(inputStream, new File(DESTINATION));
-        } catch (final SdkClientException e) {
+        } catch (final Exception e) {
             System.out.println("FATAL: Failed to fetch flow file from S3");
             throw e;
         }

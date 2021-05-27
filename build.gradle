@@ -35,8 +35,8 @@ tasks.withType(JavaExec) {
 }
 
 dependencies {
-    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.373')
-    implementation 'com.amazonaws:aws-java-sdk-s3'
-    implementation group: 'com.amazonaws', name: 'aws-java-sdk-SdkClientException', version: '1.11.373'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.373'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.373'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.373'
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
 }
